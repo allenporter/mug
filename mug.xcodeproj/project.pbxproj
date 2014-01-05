@@ -32,7 +32,7 @@
 /* Begin PBXFileReference section */
 		9F4228C81874A5830088B2AD /* mug */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = mug; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F4228CB1874A5830088B2AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		9F4228CE1874A5830088B2AD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; tabWidth = 2; };
+		9F4228CE1874A5830088B2AD /* main.m */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; tabWidth = 2; };
 		9F4228D11874A5830088B2AD /* mug-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mug-Prefix.pch"; sourceTree = "<group>"; };
 		9F4228D21874A5830088B2AD /* mug.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = mug.1; sourceTree = "<group>"; };
 		9F4228DA1874ABDE0088B2AD /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Accelerate.framework; sourceTree = "<group>"; };
