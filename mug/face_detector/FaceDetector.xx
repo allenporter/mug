@@ -1,0 +1,42 @@
+#import "FaceDetector.h"
+#include <mutex>
+
+namespace {
+
+std::once_flag once_init;
+FaceDetector* faceDetector;
+
+void Init() {
+  faceDetector = [[FaceDetector alloc] init];
+}
+
+
+}  // namespace
+
+@implementation FaceDetector
+
+namespace mug {
+
+bool DetectFaces(CGImageRef image_ref, std::vector<mug::FaceRect>* face_rects) {
+  call_once(once_init, Init);
+  return [faceDetector detectFacesInImage:image_ref withFaceRects:face_rects];
+}
+
+} // namespace mug
+
+
+- (id) init {
+  CIContext* context = [CIContext contextWithOptions:nil];
+  NSDictionary* opts = @{ CIDetectorAccuracy : CIDetectorAccuracyHigh };
+  ciDetector = [CIDetector detectorOfType:CIDetectorTypeFace
+                                  context:context options:opts];
+  return self;
+}
+
+- (bool) detectFacesInImage:(CGImageRef)imageRef
+              withFaceRects:(std::vector<mug::FaceRect>*)faceRects {
+  faceRects->push_back(mug::FaceRect(1, 2, 3, 4));
+  return true;
+}
+
+@end
