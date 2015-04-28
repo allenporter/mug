@@ -1,0 +1,25 @@
+syntax = "proto2";
+
+option java_package = "org.thebends.mug";
+option java_outer_classname = "MugProtos";
+
+package mug;
+
+message DetectFacesRequest {
+  optional bytes image_bytes = 1;
+}
+
+message BoundingBox {
+  optional int32 x1 = 1;
+  optional int32 y1 = 2;
+  optional int32 x2 = 3;
+  optional int32 y2 = 4;
+}
+
+message DetectFacesResponse {
+  repeated BoundingBox faces = 1;
+}
+
+service MugService {
+  rpc DetectFaces(DetectFacesRequest) returns (DetectFacesResponse);
+}
