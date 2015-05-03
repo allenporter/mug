@@ -10,7 +10,11 @@ objc_library(
     "FaceDetector.h",
   ],
   sdk_frameworks = FACE_DETECTOR_FRAMEWORKS,
+  visibility = ["//visibility:public"],
 )
+
+# Workaround until https://github.com/google/bazel/issues/161 is fixed
+exports_files(["face_detector.h"])
 
 cc_test(
   name = "face_detector_test",
@@ -18,6 +22,8 @@ cc_test(
     "face_detector_test.cc",
   ],
   linkopts = [
+    # This is a workaround until https://github.com/google/bazel/issues/161 is
+    # fixed.
     "-L$(BINDIR)/mug/face_detector",
     "-lface_detector_lib",
     "-framework ImageIO",

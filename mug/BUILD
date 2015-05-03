@@ -31,6 +31,31 @@ cc_library(
   ],
 )
 
+# This target has workarounds until https://github.com/google/bazel/issues/161
+# is fixed.
+cc_binary(
+  name = "mug_server",
+  srcs = [
+    "mug_server.cc",
+    "//mug/face_detector:face_detector.h",
+  ],
+  deps = [
+    ":mug_service",
+  ],
+  linkopts = [
+    "-L$(BINDIR)/mug/face_detector",
+    "-lface_detector_lib",
+    "-framework CoreFoundation",
+    "-framework ImageIO",
+    "-framework QuartzCore",
+    "-framework Foundation",
+    "-lgrpc",
+  ],
+  data = [
+    "//mug/face_detector:face_detector_lib",
+  ],
+)
+
 cc_binary(
   name = "mug_client",
   srcs = [

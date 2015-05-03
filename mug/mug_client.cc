@@ -36,7 +36,7 @@ bool ReadBytesFromFile(const string& filename, string* out) {
 
 int main(int argc, char** argv) {
   if (argc < 3) {
-    errx(EX_USAGE, "Usage: %s <image file> ...", argv[0]);
+    errx(EX_USAGE, "Usage: %s <host:port> <image file> ...", argv[0]);
   }
   grpc_init();
 
