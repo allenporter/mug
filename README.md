@@ -1,3 +1,6 @@
+A grpc wrapper around the OS X face detection libraries.  That is, a grpc
+face detection service.
+
 This package is built with bazel and depends on rpc and protobuf.
 protobuf: https://github.com/google/protobuf
 grpc: https://github.com/grpc/grpc
